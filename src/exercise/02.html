@@ -24,15 +24,19 @@
     // // This is similar to ReactDOM.createRoot().render()
     // rootElement.append(element)
 
-    const elementProps = {
-      id: 'my-element',
-      children: 'Hello world',
+    const parentReactElement = React.createElement('div', {
+      children: [
+        React.createElement('span', {
+          children: 'Hello',
+        }),
+        React.createElement('span', {
+          children: 'World',
+        }),
+      ],
       className: 'container',
-    }
-    const elementType = 'div'
-    const reactElement = React.createElement(elementType, elementProps)
-    const root = ReactDOM.createRoot(rootElement)
-    root.render(reactElement)
+    })
+    // const root = ReactDOM.createRoot(rootElement)
+    ReactDOM.createRoot(rootElement).render(parentReactElement)
 
     // 🐨 Please re-implement the regular document.createElement code above
     // with these React API calls
